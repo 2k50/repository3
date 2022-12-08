@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 22:08:24 by eunskim           #+#    #+#             */
-/*   Updated: 2022/10/28 22:28:54 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/10 11:48:36 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/11/09 13:27:12 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
+#include<stdlib.h>
 
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*new;
 
-	new = NULL;
-	new = (t_list *) malloc (sizeof(t_list));
-	if (new == 0)
-		return (0);
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (new = 0);
+	new->next = 0;
 	new->content = content;
-	new->next = NULL;
 	return (new);
 }

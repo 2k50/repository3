@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 17:28:08 by eunskim           #+#    #+#             */
-/*   Updated: 2022/10/17 21:29:47 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/04 16:18:53 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/11/09 15:35:53 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
-	if (c >= 'A' && c <= 'Z')
-		c = c + ('a' - 'A');
+	if (c >= 65 && c <= 90)
+		c += 32;
 	return (c);
 }

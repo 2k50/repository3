@@ -3,74 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 12:30:35 by eunskim           #+#    #+#             */
-/*   Updated: 2022/10/29 22:35:50 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/05 16:48:10 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/11/15 14:28:47 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include<stdlib.h>
+#include <stddef.h>
 #include "libft.h"
 
-static size_t	ft_start(char const *s1, char const *set);
-static size_t	ft_end(char const *s1, char const *set);
-
-char	*ft_strtrim(char const *s1, char const *set)
+static int	ft_isset(char c, const char *set)
 {
-	char	*newstring;
-	size_t	start;
-	size_t	end;
-	size_t	i;
+	while (*set)
+		if (c == *set++)
+			return (1);
+	return (0);
+}
 
-	if (s1 == NULL)
-		return (NULL);
-	if (set == NULL)
-		return (ft_strdup(s1));
-	start = ft_start(s1, set);
-	end = ft_end(s1, set);
-	if (start >= end)
-		return (ft_strdup(""));
-	i = 0;
-	newstring = malloc(sizeof(char) * (end - start + 1));
-	if (newstring == 0)
+char	*ft_strtrim(const char *s1, const char *set)
+{
+	char	*ret;
+	char	*start;
+	char	*end;
+
+	if (!s1 || !set)
 		return (0);
-	while (i < end - start)
-	{
-		newstring[i] = s1[start + i];
-		i++;
-	}
-	newstring[end - start] = '\0';
-	return (newstring);
-}
-
-static size_t	ft_start(char const *s1, char const *set)
-{
-	size_t	len;
-	size_t	i;
-
-	len = ft_strlen(s1);
-	i = 0;
-	while (i < len)
-	{
-		if (ft_strchr(set, s1[i]) == 0)
-			break ;
-		i++;
-	}
-	return (i);
-}
-
-static size_t	ft_end(char const *s1, char const *set)
-{
-	size_t	len;
-	size_t	i;
-
-	len = ft_strlen(s1);
-	i = 0;
-	while (i < len)
-	{
-		if (ft_strchr(set, s1[len - 1 - i]) == 0)
-			break ;
-		i++;
-	}
-	return (len - i);
+	start = (char *)s1;
+	end = start + ft_strlen(s1);
+	while (*start && ft_isset(*start, set))
+		++start;
+	while (start < end && ft_isset(*(end - 1), set))
+		--end;
+	ret = ft_substr(start, 0, end - start);
+	return (ret);
 }

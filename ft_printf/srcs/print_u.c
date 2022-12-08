@@ -3,26 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   print_u.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 14:32:47 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/18 17:47:44 by eunskim          ###   ########.fr       */
+/*   Created: 2022/12/08 19:06:35 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/12/08 19:15:37 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// For printing %u :
-
-// almost the same as print_di, but flag + and ' ' do not apply
-
-// 1. left-justified
-// 	 		(prc-zero)(number)(blank)
-
-// 2. right-justified && .precision
-// 	 		(blank)(prc-zero)(number)
-
-// 3. right-justified && no .precision
-// 			3-1. no zero-fill (blank)(number)
-// 			3-2. zero-fill (wdt-zero)(number)
 
 #include "../ft_printf.h"
 

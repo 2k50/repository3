@@ -3,37 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 15:05:59 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/07 16:42:06 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/05 14:22:34 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/11/16 14:27:35 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
+#include<stdlib.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *str, unsigned int start, size_t len)
 {
-	char	*str;
-	size_t	i;
-	size_t	slen;
+	char	*substr;
+	size_t	new_len;
 
-	i = 0;
-	if (!s)
-		return (0);
-	slen = ft_strlen(s);
-	if (start >= slen)
-		len = 0;
-	else if (slen - start <= len)
-		len = slen - start;
-	str = (char *) malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (0);
-	while (i < len && s[start + i] != '\0')
-	{
-		str[i] = s[start + i];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
+	if (str == NULL)
+		return (NULL);
+	if ((unsigned int)ft_strlen(str) < start)
+		return (ft_strdup(""));
+	new_len = ft_strlen(str + start);
+	if (new_len < len)
+		len = new_len;
+	substr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!substr)
+		return (NULL);
+	ft_strlcpy(substr, str + start, len + 1);
+	return (substr);
 }

@@ -3,39 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 15:12:17 by eunskim           #+#    #+#             */
-/*   Updated: 2022/10/28 17:28:13 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/04 13:43:06 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/11/09 12:50:19 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_atoi(const char *str)
 {
-	long long	sum;
-	int			sign;
+	int	j;
+	int	k;
 
-	sum = 0;
-	sign = 1;
-	while (*str == ' ' || *str == '\f' || *str == '\n'
-		|| *str == '\r' || *str == '\t' || *str == '\v')
+	j = 1;
+	k = 0;
+	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
-	if (*str == '-' || *str == '+')
+	if (*str == 45)
+		j *= -1;
+	if (*str == 43 || *str == 45)
+				str++;
+	while (*str >= 48 && *str <= 57)
 	{
-		if (*str == '-')
-			sign = -1;
+		k = k * 10 + *str - '0';
 		str++;
 	}
-	while (*str >= '0' && *str <= '9')
-	{
-		sum = sum * 10 + (*str - '0');
-		if (sum < 0 && sign == -1)
-			return (0);
-		else if (sum < 0 && sign == 1)
-			return (-1);
-		str++;
-	}
-	return ((int) sum * sign);
+	return (k * j);
 }
+/*
+#include<stdio.h>
+#include<stdlib.h>
+int	main(void)
+{
+	char *s = "-2147483648";
+	printf("%d %d", ft_atoi(s), atoi(s));
+}
+*/

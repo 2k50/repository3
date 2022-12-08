@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_conversions.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 20:11:17 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/17 19:25:11 by eunskim          ###   ########.fr       */
+/*   Created: 2022/12/08 19:05:07 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/12/08 19:05:20 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

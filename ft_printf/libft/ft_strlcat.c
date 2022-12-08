@@ -3,35 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 19:16:26 by eunskim           #+#    #+#             */
-/*   Updated: 2022/10/21 21:54:16 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/04 16:29:25 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/11/10 11:26:03 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	i;
-	size_t	dst_len;
-	size_t	src_len;
+	char	*cur;
+	char	*reader;
+	size_t	len;
 
-	i = 0;
-	src_len = ft_strlen(src);
-	if (!dst && dstsize == 0)
-		return (src_len);
-	dst_len = ft_strlen(dst);
-	if (dstsize != 0 && dst_len < dstsize)
+	cur = (char *)ft_memchr(dst, '\0', dstsize);
+	if (cur == 0)
+		return (dstsize + ft_strlen(src));
+	reader = (char *)src;
+	len = (size_t)(cur - dst) + ft_strlen(reader);
+	while ((size_t)(cur - dst) < dstsize - 1 && *reader != 0)
 	{
-		while (i < (dstsize - dst_len - 1) && src[i] != '\0')
-		{
-			dst[dst_len + i] = src[i];
-			i++;
-		}
-		dst[dst_len + i] = '\0';
-		return (dst_len + src_len);
+		*cur = *reader;
+		cur++;
+		reader++;
 	}
-	return (src_len + dstsize);
+	*cur = 0;
+	return (len);
 }

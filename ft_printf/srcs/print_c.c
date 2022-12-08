@@ -3,31 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   print_c.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 14:42:37 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/17 16:54:08 by eunskim          ###   ########.fr       */
+/*   Created: 2022/12/08 19:04:45 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/12/08 19:13:22 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// For printing char ('%' included) :
-
-// Precision, space, #, + will be ignored. Undefined behavior not handled.
-
-// When width is bigger than 1, blank(s) will be printed out.
-// Flag - forces left justification.
-
-// Flag 0 leads to undefined behavior.
-// There is a warning sign while compiling,
-// but it fills up 0(s) to the blank(s) in the result.
-// When the - flag is on, 0 will be ignored. (No zerofill, left-justified)
-
-// Test cases:
-// printf("[%%]\n");					[%]					
-// printf("[%5%]\n");					[    %]
-// printf("[%-5%]\n");					[%    ]
-// printf("[%05%]\n");					[0000%]
-// printf("[%-05%]\n");					[%    ]
 
 #include "../ft_printf.h"
 

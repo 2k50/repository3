@@ -3,54 +3,59 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 18:25:55 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/07 12:33:25 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/07 16:01:21 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/11/16 13:31:02 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-static int		digit_number_check(int n);
+static int	ft_digit_count(long int i)
+{
+	int	count;
+
+	count = 0;
+	if (i == 0)
+		count++;
+	if (i < 0)
+	{
+		i *= -1;
+		count++;
+	}
+	while (i > 0)
+	{
+		i /= 10;
+		count++;
+	}
+	return (count);
+}
 
 char	*ft_itoa(int n)
 {
-	int			digit_number;
-	long long	number;
-	char		*result;
+	char		*str;
+	int			i;
+	long int	nb;
 
-	number = n;
-	digit_number = digit_number_check(n);
-	result = malloc (sizeof(char) * (digit_number + 1));
-	if (result == 0)
+	nb = n;
+	i = ft_digit_count(nb);
+	str = malloc(i * sizeof(char) + 1);
+	if (!str)
 		return (0);
-	*(result + digit_number) = 0;
-	*(result) = '-';
-	if (n == 0)
-		*(result) = '0';
-	else if (n < 0)
-		number *= (-1);
-	while (number != 0)
+	str[i--] = 0;
+	if (nb == 0)
+		str[0] = 48;
+	if (nb < 0)
 	{
-		*(result + digit_number - 1) = (number % 10) + '0';
-		number = number / 10;
-		digit_number--;
+		str[0] = '-';
+		nb = nb * -1;
 	}
-	return (result);
-}
-
-static int	digit_number_check(int n)
-{
-	int	digit_number;
-
-	digit_number = 0;
-	if (n <= 0)
-		digit_number = 1;
-	while (n)
+	while (nb > 0)
 	{
-		n = n / 10;
-		digit_number++;
+		str[i--] = nb % 10 + '0';
+		nb = nb / 10;
 	}
-	return (digit_number);
+	return (str);
 }

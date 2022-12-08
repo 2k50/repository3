@@ -3,33 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/19 16:31:55 by eunskim           #+#    #+#             */
-/*   Updated: 2022/10/19 17:49:17 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/04 16:16:25 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/11/09 13:35:24 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include<stddef.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*to;
-	char	*from;
+	char		*p1;
+	const char	*p2;
 
-	to = (char *) dst;
-	from = (char *) src;
-	if (len == 0 || dst == src)
+	p1 = (char *)dst;
+	p2 = (char *)src;
+	if (dst == src)
 		return (dst);
-	if (to > from && to - from < (int) len)
-	{
-		while (len > 0)
-		{
-			to[len - 1] = from[len - 1];
-			len--;
-		}
-		return (dst);
-	}
-	ft_memcpy(dst, src, len);
+	if (p2 < p1)
+		while (len--)
+			p1[len] = p2[len];
+	else
+		while (len--)
+			*p1++ = *p2++;
 	return (dst);
 }

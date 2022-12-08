@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sign_prefix_helper.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 18:58:52 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/18 16:29:02 by eunskim          ###   ########.fr       */
+/*   Created: 2022/12/08 19:07:17 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/12/08 19:16:29 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

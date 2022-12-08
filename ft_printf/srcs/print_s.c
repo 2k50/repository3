@@ -3,38 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   print_s.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 09:09:42 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/18 17:25:23 by eunskim          ###   ########.fr       */
+/*   Created: 2022/12/08 19:06:14 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/12/08 19:15:05 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// For printing string :
-
-// Space, #, + will be ignored. Undefined behavior not handled.
-
-// Only the chracter(s) of the size of the precision given will be printed.
-// %.s will print out an empty string (""), as '.' is treated as '.0'.
-
-// Even when the width is smaller than the strlen,
-// the whole string will be printed as normal.
-// When the width is bigger than the strlen,
-// there will be (width - (precision/strlen)) of blank(s).
-
-// Flag 0 leads to undefined behavior.
-// There is a warning sign while compiling,
-// but it fills up 0(s) to the blank(s) in the result.
-// When the - flag is on, 0 will be ignored. (No zerofill, left-justified)
-
-// Flag - forces left justification.
-
-// When the string given as an argument is a null pointer,
-// the function prints out '(null)'.
-// When the string given as an argument is an empty string,
-// the function prints out "".
-// When the function accidentally hits '\0' in the middle of the argument,
-// the printing of that argument will be terminated instantly.
 
 #include "../ft_printf.h"
 

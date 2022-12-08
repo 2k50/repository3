@@ -3,32 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 21:08:09 by eunskim           #+#    #+#             */
-/*   Updated: 2022/10/20 20:43:55 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/04 16:36:14 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/11/09 13:33:18 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include<stddef.h>
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char	*cdst;
-	char	*csrc;
-	size_t	i;
+	char		*p1;
+	const char	*p2;
 
-	if (n == 0)
+	if ((dst == src) || n == 0)
 		return (dst);
-	if (dst == 0 && src == 0)
+	if (!dst && !src)
 		return (0);
-	cdst = (char *) dst;
-	csrc = (char *) src;
-	i = 0;
-	while (i < n)
-	{
-		cdst[i] = csrc[i];
-		i++;
-	}
+	p1 = (char *)dst;
+	p2 = (const char *)src;
+	while (n--)
+		p1[n] = p2[n];
 	return (dst);
 }

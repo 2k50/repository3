@@ -3,21 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   print_p.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 15:08:20 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/18 17:55:45 by eunskim          ###   ########.fr       */
+/*   Created: 2022/12/08 19:05:51 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/12/08 19:14:31 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// For printing %p:
-// width, - are to be concerned.
-
-// 1. left-justified
-// 			(number)(blank)
-
-// 2. right-justified
-// 			(blank)(number)
 
 #include "../ft_printf.h"
 

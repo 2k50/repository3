@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 17:08:44 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/07 12:13:15 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/03 15:45:38 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/11/08 16:09:33 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isdigit(int c)
 {
-	return (c >= '0' && c <= '9');
+	if (48 <= c && c <= 57)
+		return (c);
+	return (0);
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 16:44:13 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/07 12:16:43 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/03 15:49:19 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/11/10 10:14:18 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
-	return (c >= 0 && c <= 127);
+	return (0 <= c && c <= 127);
 }

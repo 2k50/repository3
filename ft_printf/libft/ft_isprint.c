@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 17:14:34 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/07 12:13:11 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/04 15:05:45 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/11/08 16:49:22 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	return (c >= ' ' && c <= '~');
+	if (32 <= c && c <= 126)
+		return (c);
+	return (0);
 }

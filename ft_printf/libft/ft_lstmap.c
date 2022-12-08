@@ -3,37 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 17:33:04 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/07 13:31:45 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/10 14:36:17 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/11/17 12:50:15 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
+#include<stdlib.h>
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void *))
 {
-	t_list	*new_head;
-	t_list	*new_next;
-	void	*new_content;
+	t_list	*first;
+	t_list	*new;
 
-	if (lst == 0 || f == 0 || del == 0)
+	if (!f || !del)
 		return (0);
-	new_head = NULL;
+	first = 0;
 	while (lst)
-	{	
-		new_content = f(lst->content);
-		new_next = ft_lstnew(new_content);
-		if (new_next == 0)
+	{
+		new = ft_lstnew((*f)(lst->content));
+		if (!new)
 		{
-			del(new_content);
-			if (new_head)
-				ft_lstclear(&new_head, del);
+			while (first)
+			{
+				new = first->next;
+				(*del)(first->content);
+				free(first);
+				first = new;
+			}
+			lst = 0;
 			return (0);
 		}
-		ft_lstadd_back(&new_head, new_next);
+		ft_lstadd_back(&first, new);
 		lst = lst->next;
 	}
-	return (new_head);
+	return (first);
 }

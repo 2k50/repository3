@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 17:38:30 by eunskim           #+#    #+#             */
-/*   Updated: 2022/10/17 21:29:40 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/04 16:17:58 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/10/10 17:44:04 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_toupper(int c)
 {
-	if (c >= 'a' && c <= 'z')
-		c = c - ('a' - 'A');
+	if (c >= 97 && c <= 122)
+		c -= 32;
 	return (c);
 }

@@ -3,25 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   print_x.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 15:06:43 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/18 18:35:59 by eunskim          ###   ########.fr       */
+/*   Created: 2022/12/08 19:06:57 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/12/08 19:16:19 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// For printing %x and %X :
-// width, precision, -, 0, # are to be concerned.
-
-// 1. left-justified
-//	 		(prefix)(prc-zero)(number)(blank)
-
-// 2. right-justified && .precision
-//			(blank)(prefix)(prc-zero)(number)
-
-// 3. right-justified && no .precision
-// 			3-1. no zero-fill (blank)(prefix)(number)
-// 			3-2. zero-fill (prefix)(wdt-zero)(number)
 
 #include "../ft_printf.h"
 

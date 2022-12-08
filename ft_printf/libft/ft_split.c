@@ -3,94 +3,82 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: cd-haute <cd-haute@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 20:27:31 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/07 18:28:57 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/07 13:19:08 by cd-haute          #+#    #+#             */
+/*   Updated: 2022/11/16 16:00:42 by cd-haute         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-static int		count_strings(char const *s, char c);
-static char		*generate_substrings(size_t *substr_len, char const *s, char c);
-static void		*free_strings(char **ptr);
+static int	ft_count_word(char const *s, char c)
+{
+	int	i;
+	int	word;
+
+	i = 0;
+	word = 0;
+	while (s && s[i])
+	{
+		if (s[i] != c)
+		{
+			word++;
+			while (s[i] != c && s[i])
+				i++;
+		}
+		else
+			i++;
+	}
+	return (word);
+}
+
+static int	ft_size_word(char const *s, char c, int i)
+{
+	int	size;
+
+	size = 0;
+	while (s[i] != c && s[i])
+	{
+		size++;
+		i++;
+	}
+	return (size);
+}
+
+static void	ft_free(char **strs, int j)
+{
+	while (j-- > 0)
+		free(strs[j]);
+	free(strs);
+}
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	substr_len;
-	char	**newarray;
-	char	**newarray_cpy;
-
-	newarray = (char **) malloc (sizeof(char *) * (count_strings(s, c) + 1));
-	if (newarray == 0)
-		return (0);
-	newarray_cpy = newarray;
-	while (*s)
-	{
-		if (*s != c)
-		{
-			*newarray = generate_substrings(&substr_len, s, c);
-			if (*newarray == 0)
-			{
-				free_strings(newarray_cpy);
-				return (0);
-			}
-			s = s + substr_len - 1;
-			newarray++;
-		}
-		s++;
-	}
-	*newarray = 0;
-	return (newarray_cpy);
-}
-
-static int	count_strings(char const *s, char c)
-{
-	size_t	i;
-	size_t	len;
-	int		string_count;
+	int		i;
+	char	**strs;
+	int		size;
+	int		j;
 
 	i = 0;
-	string_count = 0;
-	if (s == 0 || s[0] == '\0')
-		return (0);
-	len = ft_strlen(s);
-	if (s[0] != '\0' && s[0] != c)
-		string_count = 1;
-	while (i < len - 1)
+	j = -1;
+	strs = (char **)malloc((ft_count_word(s, c) + 1) * sizeof(char *));
+	if (!strs)
+		return (NULL);
+	while (++j < ft_count_word(s, c))
 	{
-		if (s[i] == c)
+		while (s[i] == c)
+			i++;
+		size = ft_size_word(s, c, i);
+		strs[j] = ft_substr(s, i, size);
+		if (!strs[j])
 		{
-			if (s[i + 1] != c && s[i + 1] != '\0')
-				string_count++;
+			ft_free(strs, j);
+			return (NULL);
 		}
-		i++;
+		i += size;
 	}
-	return (string_count);
-}
-
-static char	*generate_substrings(size_t *substr_len, char const *s, char c)
-{
-	char	*result;
-
-	*substr_len = 0;
-	while (*(s + *substr_len) != '\0' && *(s + *substr_len) != c)
-		*substr_len += 1;
-	result = ft_substr(s, 0, *substr_len);
-	return (result);
-}
-
-static void	*free_strings(char **ptr)
-{
-	size_t	i;
-
-	i = 0;
-	while (ptr[i] != 0)
-	{
-		free (ptr[i]);
-		i++;
-	}
-	free (ptr);
-	return (0);
+	strs[j] = 0;
+	return (strs);
 }
